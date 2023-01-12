@@ -2,14 +2,14 @@
 
 <template>
 
-<HelloWorld />
+<SignIn />
 
 </template>
 
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import SignIn from './components/SignIn.vue';
 
-export default defineComponent({ components: {HelloWorld} })
+export default defineComponent({ components: {SignIn} })
 </script>
