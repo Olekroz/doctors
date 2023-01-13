@@ -1,3 +1,104 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+
+    font-family: 'Nunito';
+  
+    src: url('/src/assets/Nunito-Regular.ttf');
+  
+    font-weight: 400;
+  
+    font-style: normal;
+  
+  }
+  @font-face {
+
+    font-family: 'Nunito';
+  
+    src: url('/src/assets/Nunito-Bold.ttf');
+  
+    font-weight: 600;
+  
+    font-style: bold;
+  
+  }
+  @font-face {
+
+    font-family: 'Nunito';
+  
+    src: url('/src/assets/Nunito-Black.ttf');
+  
+    font-weight: 900;
+  
+    font-style: bold;
+  
+  }
+
+  :root {
+    font-family: 'Nunito';
+    
+    --color-primary-50: 227deg 91% 95%;
+
+    --color-primary-100: 230deg 93% 90%;
+
+    --color-primary-200: 230deg 93% 84%;
+
+    --color-primary-300: 230deg 93% 77%;
+
+    --color-primary-400: 230deg 93% 68%;
+
+    --color-primary-500: 230deg 93% 58%;
+
+    --color-primary-600: 230deg 93% 46%;
+
+    --color-primary-700: 230deg 93% 32%;
+
+    --color-primary-800: 230deg 93% 20%;
+
+    --color-primary-900: 230deg 93% 14%;
+
+    --mypink: #d140d1;
+  }
+  h1 {
+    @apply text-3xl font-extrabold;
+  }
+
+  h2 {
+
+    @apply text-2xl font-extrabold;
+
+  }
+
+
+
+  h3 {
+
+    @apply text-xl font-extrabold;
+
+  }
+
+
+
+  h4 {
+
+    @apply text-lg font-extrabold;
+
+  }
+
+
+
+  h5 {
+
+    @apply font-extrabold;
+
+  }
+
+
+
+  h6 {
+
+    @apply text-sm font-extrabold;
+
+  }
