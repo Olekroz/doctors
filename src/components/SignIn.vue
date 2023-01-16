@@ -17,7 +17,8 @@
           <form class="bg-white flex-column py-3 space-y-6">
             <div>
               <label for="email" class="block font-bold mb-2">Email address</label>
-              <input type="email" name="email" id="email" class="border rounded appearance-none w-full h-9 py-2 px-3">
+              <input type="email" name="email" id="email" @input="onInput" class="border rounded appearance-none w-full h-9 py-2 px-3">
+              <p v-if="emailError" class="text-red-500">Wrong email address. Please enter correct email.</p>
             </div>
             <div>
               <label for="password" class="block font-bold mb-2">Password</label>
@@ -36,10 +37,31 @@
   </div>
 </template>
 
-
 <script lang="ts">
 import { isSVGTag } from '@vue/shared';
-import { defineComponent } from 'vue';
+import { defineComponent, handleError } from 'vue';
 
-export default defineComponent({ components: { isSVGTag } })
-</script>
+export default defineComponent({ 
+  components: { isSVGTag }, 
+  methods: {
+    onInput(event: any) {
+      this.email=event.target.value;
+      if(this.email.includes("@") && this.email.includes(".")) {
+        this.emailError = false;
+      } else {
+      this.emailError = true;
+      }
+    },
+  },
+  data() {
+    return {
+      email: "",
+      emailError: false,
+    }
+  }
+})
+
+
+
+
+</script> 

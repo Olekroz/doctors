@@ -24,7 +24,7 @@
     font-style: bold;
   
   }
-  @font-face {
+  /* @font-face {
 
     font-family: 'Nunito';
   
@@ -34,7 +34,7 @@
   
     font-style: bold;
   
-  }
+  } */
 
   :root {
     font-family: 'Nunito';
