@@ -22,7 +22,8 @@
             </div>
             <div>
               <label for="password" class="block font-bold mb-2">Password</label>
-              <input type="password" name="password" id="password" class="border rounded appearance-none w-full h-9 py-2 px-3">
+              <input type="password" name="password" id="password" @input="onPassword" class="border rounded appearance-none w-full h-9 py-2 px-3">
+              <p v-if="passwordError" class="text-red-500">The password must be at least 10 characters long, contain at least one uppercase letter and at least one number.</p>
             </div>
             <div>
               <p class="text-blue-500">Forgot your password?</p>
@@ -38,8 +39,11 @@
 </template>
 
 <script lang="ts">
+import { injectProp } from '@vue/compiler-core';
 import { isSVGTag } from '@vue/shared';
 import { defineComponent, handleError } from 'vue';
+
+import onInput from '../core/validators/emaillValidator'
 
 export default defineComponent({ 
   components: { isSVGTag }, 
@@ -52,6 +56,16 @@ export default defineComponent({
       this.emailError = true;
       }
     },
+
+    onPassword(event: any) {
+      this.password=event.target.value;
+      let hasNumber= /\d/;  
+      if (this.password.length > 10 && hasNumber.test(this.password)) {
+        this.passwordError = false;
+      } else {
+        this.passwordError = true;
+      }
+    },
     signIn() {
       // this.$router.push({ path: '/home', name:'Home'})
       const response = fetch('http://localhost:3000/sign-in', {
@@ -61,13 +75,14 @@ export default defineComponent({
           password: 'cokolwiek'
           }) 
       });
-       console.log(response);
-    }
+    },
   },
   data() {
     return {
       email: "",
       emailError: false,
+      password: "",
+      passwordError: false,
     }
   },
 })
