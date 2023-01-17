@@ -14,7 +14,7 @@
         </div>
       
         <div class="h-auto w-full py-6 bg-white rounded-xl px-8 shadow text-sm">
-          <form class="bg-white flex-column py-3 space-y-6">
+          <form @submit.prevent class="bg-white flex-column py-3 space-y-6">
             <div>
               <label for="email" class="block font-bold mb-2">Email address</label>
               <input type="email" name="email" id="email" @input="onInput" class="border rounded appearance-none w-full h-9 py-2 px-3">
@@ -28,7 +28,7 @@
               <p class="text-blue-500">Forgot your password?</p>
             </div>
             <div>
-              <button class="bg-blue-600 text-white w-full h-[40px] rounded-md">Sign in</button>
+              <button class="bg-blue-600 text-white w-full h-[40px] rounded-md" @click="signIn">Sign in</button>
             </div>
           </form>
         </div>
@@ -52,13 +52,24 @@ export default defineComponent({
       this.emailError = true;
       }
     },
+    signIn() {
+      // this.$router.push({ path: '/home', name:'Home'})
+      const response = fetch('http://localhost:3000/sign-in', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: this.email,
+          password: 'cokolwiek'
+          }) 
+      });
+       console.log(response);
+    }
   },
   data() {
     return {
       email: "",
       emailError: false,
     }
-  }
+  },
 })
 
 
