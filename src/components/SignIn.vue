@@ -61,7 +61,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { validateEmail } from "../core/validators/emaillValidator";
+import { validateEmail } from "../core/validators/email-validator";
+import { validatePassword } from "../core/validators/password-validator";
 import { a } from "../source";
 
 export default defineComponent({
@@ -72,15 +73,15 @@ export default defineComponent({
     },
     onPassword(event: any) {
       this.password = event.target.value;
-      let hasNumber = /\d/;
-      if (this.password.length > 10 && hasNumber.test(this.password)) {
-        this.passwordError = false;
-      } else {
-        this.passwordError = true;
-      }
+      this.passwordError = validatePassword(this.password);
     },
     signIn() {
-      // this.$router.push({ path: '/home', name:'Home'})
+      if (!this.emailError && !this.passwordError) {
+        this.$router.push({ path: "/home", name: "Home" });
+      } else {
+        alert("Please enter correct email and password!");
+      }
+
       const response = fetch("http://localhost:3000/sign-in", {
         method: "POST",
         body: JSON.stringify({
