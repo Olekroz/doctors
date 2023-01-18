@@ -73,7 +73,14 @@ export default defineComponent({
     onPassword(event: any) {
       this.password = event.target.value;
       let hasNumber = /\d/;
-      if (this.password.length > 10 && hasNumber.test(this.password)) {
+      let hasUpperCase = /[A-Z]/;
+      let hasLowerCase = /[a-z]/;
+      if (
+        this.password.length > 10 &&
+        hasNumber.test(this.password) &&
+        hasUpperCase.test(this.password) &&
+        hasLowerCase.test(this.password)
+      ) {
         this.passwordError = false;
       } else {
         this.passwordError = true;
