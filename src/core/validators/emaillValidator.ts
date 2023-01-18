@@ -1,8 +1,7 @@
-export default class onInput (event: any) {
-        this.email=event.target.value;
-        if(this.email.includes("@") && this.email.includes(".")) {
-          this.emailError = false;
+export function validateEmail (email: string):boolean {
+        if(email.includes("@") && email.includes(".")) {
+          return false;
         } else {
-        this.emailError = true;
+        return true;
         }
       }
