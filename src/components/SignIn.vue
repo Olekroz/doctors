@@ -76,7 +76,12 @@ export default defineComponent({
       this.passwordError = validatePassword(this.password);
     },
     signIn() {
-      // this.$router.push({ path: '/home', name:'Home'})
+      if (!this.emailError && !this.passwordError) {
+        this.$router.push({ path: "/home", name: "Home" });
+      } else {
+        alert("Please enter correct email and password!");
+      }
+
       const response = fetch("http://localhost:3000/sign-in", {
         method: "POST",
         body: JSON.stringify({
