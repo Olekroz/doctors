@@ -1,7 +1,7 @@
 <template>
   <div class="bg-primary-50 h-screen">
-    <div class="flex justify-center py-12">
-      <div class="space-y-8 w-[450px]">
+    <div class="flex justify-center py-12 bg-primary-50">
+      <div class="space-y-8 w-[450px] mx-8">
         <div class="h-auto max-w-md mb-10">
           <span class="">
             <svg
@@ -19,7 +19,7 @@
         </div>
 
         <div class="h-auto w-full py-6 bg-white rounded-xl px-8 shadow text-sm">
-          <form @submit.prevent class="bg-white flex-column py-3 space-y-6">
+          <form @submit.prevent class="bg-white flex-column py-3 space-y-6 mx-8">
             <div>
               <label for="email" class="block font-bold mb-2">Email address</label>
               <input
@@ -76,19 +76,19 @@ export default defineComponent({
       this.passwordError = validatePassword(this.password);
     },
     signIn() {
+      this.emailError = validateEmail(this.email);
+      this.passwordError = validatePassword(this.password);
       if (!this.emailError && !this.passwordError) {
         this.$router.push({ path: "/home", name: "Home" });
-      } else {
-        alert("Please enter correct email and password!");
       }
 
-      const response = fetch("http://localhost:3000/sign-in", {
-        method: "POST",
-        body: JSON.stringify({
-          email: this.email,
-          password: "cokolwiek",
-        }),
-      });
+      // const response = fetch("http://localhost:3000/sign-in", {
+      //   method: "POST",
+      //   body: JSON.stringify({
+      //     email: this.email,
+      //     password: "cokolwiek",
+      //   }),
+      // });
       a.bbb();
     },
   },
