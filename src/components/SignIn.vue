@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-primary-50 h-screen">
-    <div class="flex justify-center py-12 bg-primary-50">
+  <div class="bg-primary-50 min-h-screen">
+    <div class="flex justify-center py-12">
       <div class="space-y-8 w-[450px] mx-8">
         <div class="h-auto max-w-md mb-10">
           <span class="">
@@ -49,7 +49,18 @@
               <p class="text-blue-500">Forgot your password?</p>
             </div>
             <div>
-              <button class="bg-blue-600 text-white w-full h-[40px] rounded-md" @click="signIn">Sign in</button>
+              <button
+                data-modal-target="defaultModal"
+                data-modal-toggle="defaultModal"
+                class="bg-blue-600 text-white w-full h-[40px] rounded-md"
+                @click="signIn"
+              >
+                Sign in
+              </button>
+
+              <div id="defaultModal">
+                <div></div>
+              </div>
             </div>
           </form>
         </div>
@@ -63,7 +74,7 @@ import { defineComponent } from "vue";
 
 import { validateEmail } from "../core/validators/email-validator";
 import { validatePassword } from "../core/validators/password-validator";
-import { a } from "../source";
+import { a, httpClient } from "../source";
 
 export default defineComponent({
   methods: {
@@ -75,21 +86,23 @@ export default defineComponent({
       this.password = event.target.value;
       this.passwordError = validatePassword(this.password);
     },
-    signIn() {
+    async signIn() {
       this.emailError = validateEmail(this.email);
       this.passwordError = validatePassword(this.password);
       if (!this.emailError && !this.passwordError) {
-        this.$router.push({ path: "/home", name: "Home" });
+        let res = await httpClient.request("http://localhost:3000/sign-in", "POST", {
+          email: this.email,
+          password: this.password,
+        });
+        console.log(res);
+        if (res.success == false) {
+          alert("Błąd logowania!");
+        }
+        if (res.success) {
+          this.$router.push({ path: "/home", name: "Home" });
+        }
+      } else {
       }
-
-      // const response = fetch("http://localhost:3000/sign-in", {
-      //   method: "POST",
-      //   body: JSON.stringify({
-      //     email: this.email,
-      //     password: "cokolwiek",
-      //   }),
-      // });
-      a.bbb();
     },
   },
   data() {
