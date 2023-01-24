@@ -74,7 +74,7 @@ import { defineComponent } from "vue";
 
 import { validateEmail } from "../core/validators/email-validator";
 import { validatePassword } from "../core/validators/password-validator";
-import { a, httpClient } from "../source";
+import { httpClient } from "../source";
 
 export default defineComponent({
   methods: {

@@ -1,10 +1,3 @@
 {
-  "sign-in": {
-    "success": true,
-    "error": null,
-    "value": {
-      "email": "cokolwiek",
-      "password": "Haslo123"
-    }
-  }
+  "sign-in": {}
 }
