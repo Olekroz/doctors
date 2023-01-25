@@ -18,69 +18,70 @@
           <h2 class="text-center">Onboarding</h2>
         </div>
 
-        <div class="bg-blue-300 text-white w-[120px] h-[40px] rounded-md text-center">
-          <span class="">Step 1 of 1</span>
-        </div>
-
-        <div class="h-auto w-full py-6 bg-white rounded-xl px-8 shadow text-sm">
-          <form @submit.prevent class="bg-white flex-column py-3 space-y-6 mx-8">
+        <div class="h-auto min-w-full max-w-sm py-6 bg-white rounded-xl px-8 shadow text-sm relative">
+          <div
+            class="bg-blue-400 text-white w-[120px] h-[40px] rounded-md flex items-center justify-center absolute top-[-20px] left-[165px]"
+          >
+            Step 1 of 1
+          </div>
+          <form @submit.prevent class="flex-column py-3 space-y-6 mx-8">
             <h3 class="block font-normal mb-2">Identification</h3>
-            <div class="block">
+            <div class="flex justify-between items-center">
               <label for="firstname">Firstname</label>
               <input
                 type="text"
                 id="firstname"
                 placeholder="Mike"
-                class="border rounded appearance-none w-full h-9 py-2 px-3"
+                class="border rounded appearance-none h-9 py-2 px-3 placeholder:text-end"
               />
             </div>
-            <div>
+            <div class="flex justify-between items-center">
               <label for="middlename">Middlename</label>
               <input
                 type="text"
                 id="middlename"
                 placeholder="John"
-                class="border rounded appearance-none w-full h-9 py-2 px-3"
+                class="border rounded appearance-none h-9 py-2 px-3 placeholder:text-end"
               />
             </div>
-            <div>
+            <div class="flex justify-between items-center">
               <label for="lastname">Lastname</label>
               <input
                 type="text"
                 id="lastname"
                 placeholder="Smith"
-                class="border rounded appearance-none w-full h-9 py-2 px-3"
+                class="border rounded appearance-none h-9 py-2 px-3 placeholder:text-end"
               />
             </div>
-            <div>
+            <div class="flex justify-between items-center">
               <label for="birthdate">Birthdate</label>
               <input
                 type="text"
                 id="birthdate"
                 placeholder="04-22-1982"
-                class="border rounded appearance-none w-full h-9 py-2 px-3"
+                class="border rounded appearance-none h-9 py-2 px-3 placeholder:text-end"
               />
             </div>
-            <div>
+            <div class="flex justify-between items-center">
               <label for="phone number">Phone number</label>
               <input
                 type="text"
                 id="phone number"
-                placeholder="04-22-1982"
-                class="border rounded appearance-none w-full h-9 py-2 px-3"
+                placeholder="(123)456-7890"
+                class="border rounded appearance-none h-9 py-2 px-3 placeholder:text-end"
               />
             </div>
-            <div>
+            <div class="flex justify-between items-center">
               <label for="1234567890">NPI</label>
               <input
                 type="text"
                 id="1234567890"
                 placeholder="04-22-1982"
-                class="border rounded appearance-none w-full h-9 py-2 px-3"
+                class="border rounded appearance-none h-9 py-2 px-3 placeholder:text-end"
               />
             </div>
-            <div>
-              <button class="bg-blue-600 text-white w-[80px] h-[40px] rounded-md">Save</button>
+            <div class="flex justify-end pt-4">
+              <button class="bg-blue-400 text-white w-[80px] h-[35px] rounded-md">Save</button>
             </div>
           </form>
         </div>

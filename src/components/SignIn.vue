@@ -101,7 +101,6 @@ export default defineComponent({
         if (res.success) {
           this.$router.push({ path: "/home", name: "Home" });
         }
-      } else {
       }
     },
   },
