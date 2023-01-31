@@ -7,7 +7,11 @@ export class HttpClient {
     let json = await response.json();
     if (response.ok) {
       console.log(json);
-      const res: HttpResponse<T> = { success: json.success, error: json.error, value: json.value };
+      const res: HttpResponse<T> = {
+        success: json.success,
+        error: json.error,
+        value: json.value,
+      };
       return res;
     } else {
       const err: HttpResponse<T> = { success: false, error: json.error, value: null };
