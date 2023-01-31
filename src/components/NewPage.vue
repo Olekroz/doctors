@@ -1,5 +1,5 @@
 <template>
-  <h1>This is new page!</h1>
+  <h1>This is new Olek page!</h1>
 </template>
 
 <script lang="ts">
